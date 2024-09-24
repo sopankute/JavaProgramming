@@ -1,0 +1,31 @@
+class Customer {
+	balance;
+
+	public Customer(balance) {
+		//parameterized constructor
+	}
+
+	withdraw( amount) {
+		if(amount > balance) {
+			throw user defined exception called InsufficientFundsExceptions
+			Also, it should come with a message InsufficientFundsExceptions("Less balance")
+		}
+		else {
+			//update balance after withdraw
+			balance = balance - amount
+		}
+	}
+
+	display() {
+		//s.o.p(balance)
+	}
+}
+
+main() {
+	Customer c = new Customer(5000)
+	c.withdraw(1000) //success
+	c.display()
+
+	c.withdraw(6000) //exception generated
+	c.display()
+}

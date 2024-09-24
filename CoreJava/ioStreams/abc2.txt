@@ -1,0 +1,1 @@
+Java has interpreter as well as compiler

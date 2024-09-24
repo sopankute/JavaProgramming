@@ -1,0 +1,1 @@
+Java is not a pure object oriented programming language

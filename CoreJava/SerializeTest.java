@@ -1,0 +1,32 @@
+
+import java.io.*;
+class Person implements Serializable{ // marker interface 
+    String name;
+    int age;
+    transient String password;
+    public Person(String n, int a, String p){
+    name=n;
+    age=a;
+    password=p;
+    }
+    @Override
+    public String toString(){
+        return name+" "+age+" "+password;
+    }
+}
+public class SerializeTest{
+    public static void main(String[] args) throws Exception {
+        Person p1=new Person("Java",27,"java");
+        // serialization
+        FileOutputStream fos=new FileOutputStream("person.dat");
+        ObjectOutputStream oos=new ObjectOutputStream(fos);
+        oos.writeObject(p1);
+        // de-serialize
+        FileInputStream fis=new FileInputStream("person.dat");
+        ObjectInputStream ois=new ObjectInputStream(fis);
+        Person p2=(Person)ois.readObject();
+      
+        System.out.println(p1); // p1.toString()
+        System.out.println(p2); // p2.toString()
+    }
+}
